@@ -1,15 +1,8 @@
 const express = require("express");
 const router = express.Router(); // Used to create modular, mountable route handlers
+const authcontroller = require("../controllers/auth-controllers")
 
-router.route("/").get((req, res) => {
-    res
-    .status(200)
-    .send("Routers page is here")
-});
-router.route("/").get((req, res) => {
-    res
-    .status(200)
-    .send("Chipi chipi chapa chapa")
-});
+router.route("/").get(authcontroller.home);
+router.route("/register").get(authcontroller.register);
 
 module.exports = router;
